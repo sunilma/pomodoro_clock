@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<script type="text/javascript" src="clock.js"></script>
+
+	<title>Pomodoro Clock</title>
+</head>
+<body>
+
+<div id="pomodoro" class="container-fluid" ng-controller="AppController">
+<h2>Pomodoro Clock</h2>
+<div id="time" class="row">
+	<div id="break" class="col-md-6">
+		<h4>Break (mins)</h4>
+		<div class="row">
+			<div class="add col-md-1 col-md-offset-3"><i class="fa fa-minus-circle minus" ng-click="updateBreak(-1)"></i></div>
+			<div id="break_time" class="add col-md-2 col-md-offset-1">{{ breakTime }}</div>
+			<div class="add col-md-1"><i class="fa fa-plus-circle plus" ng-click="updateBreak(1)"></i></div>
+		</div>
+	</div>
+	<div id="session" class="col-md-6">
+		<h4>Session (mins)</h4>
+		<div class="row">
+			<div class="add col-md-1 col-md-offset-3"><i class="fa fa-minus-circle minus" ng-click="updateSession(-1)"></i></div>
+			<div id="session_time" class="add col-md-2 col-md-offset-1">{{ sessionTime }}</div>
+			<div class="add col-md-1"><i class="fa fa-plus-circle plus" ng-click="updateSession(1)"></i></div>
+		</div>
+	</div>
+</div>
+
+<h2>{{ ses_brk }}</h2>
+<div id="clock" ng-click="toggle()">
+	<span id="rotator" ng-style="{ 'height':myheight, 'background':mycolor }"></span>
+	<span id="timer" ng-style="{ 'font-size': myfont_size }">{{ display }}</span>
+</div>
+
+<div id="reset">
+	<button id="reset_btn" class="btn btn-danger btn-lg center-block" ng-click="reset()">Reset</button>
+</div>
+</div>
+</body>
+</html>
